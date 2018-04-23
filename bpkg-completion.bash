@@ -2,6 +2,7 @@
 
 CMDS="json install package term suggest init update list show getdeps"
 CMDS_term="write cursor color background move transition clear reset bright dim underline blink reverse hidden"
+CMDS_show="-V -h readme source"
 flags="-h -V"
 flags_json="-b -l -p -h"
 flags_list="-h --help -V --Version -d --details"
@@ -50,6 +51,14 @@ EOT
           COMPREPLY=($(compgen -W "$rep" -- "$cur"))
         fi
         ;;
+      "show" )
+        case "${COMP_WORDS[2]}" in
+          "" ) COMPREPLY=($(compgen -W "$CMDS_show" -- "$cur"));;
+          "readme" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
+          "source" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
+
+
+     * ) echo nothing was detected;;
     esac
   fi
 
