@@ -20,7 +20,7 @@ function _bpkg-completion
   else
 
     case "$prev" in
-      "json" ) COMPREPLY=($(compgen -W "$ flags_json" -- "$cur"));;
+      "json" ) COMPREPLY=($(compgen -W "$flags_json" -- "$cur"));;
       "install" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
       "package" )
         # return all parameters in package.json
@@ -43,11 +43,11 @@ EOT
           COMPREPLY=($(compgen -W "$rep" -- "$cur"))
         fi
         ;;
-      "term" ) COMPREPLY=($(compgen -W "$ CMDS_term" -- "$cur"));;
-      "suggest" ) COMPREPLY =($(compgen -W "$ flags" -- "$cur"));;
-      "init" ) COMPREPLY =($(compgen -W "$ flags" -- "$cur"));;
-      "update" ) COMPREPLY =($(compgen -W "$ flags" -- "$cur"));;
-      "list" ) COMPREPLY =($(compgen -W "$ flags_list" -- "$cur"));;
+      "term" ) COMPREPLY=($(compgen -W "$CMDS_term" -- "$cur"));;
+      "suggest" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
+      "init" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
+      "update" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
+      "list" ) COMPREPLY=($(compgen -W "$flags_list" -- "$cur"));;
     esac
   fi
 
