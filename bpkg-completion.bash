@@ -5,6 +5,7 @@ flags="-h -V"
 flags_json="-b -l -p -h"
 CMDS_term="write cursor color background move transition clear reset bright dim underline blink reverse hidden"
  flags_list="-h --help -V --Version -d --details"
+flags_getdeps="-h --help"
 
 function _bpkg-completion
 {
@@ -48,6 +49,7 @@ EOT
       "init" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
       "update" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
       "list" ) COMPREPLY=($(compgen -W "$flags_list" -- "$cur"));;
+      "getdeps" ) COMPREPLY=($(compgen -W "$flags_getdeps" -- "$cur"));;
     esac
   fi
 
