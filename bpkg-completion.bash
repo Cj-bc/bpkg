@@ -2,6 +2,7 @@
 
 CMDS="json install package term suggest init utils update list show getdeps"
 flags="-h -V"
+flags_json="-b -l -p -h"
 
 function _bpkg-completion
 {
@@ -17,6 +18,7 @@ function _bpkg-completion
   else
 
     case "$prev" in
+      "json" ) COMPREPLY=($(compgen -W "$ flags_json" -- "$cur"));;
       "install" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
       "package" )
         # return all parameters in package.json
