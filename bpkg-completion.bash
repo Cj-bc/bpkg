@@ -1,10 +1,10 @@
 #!/bin/bash
 
 CMDS="json install package term suggest init update list show getdeps"
+CMDS_term="write cursor color background move transition clear reset bright dim underline blink reverse hidden"
 flags="-h -V"
 flags_json="-b -l -p -h"
-CMDS_term="write cursor color background move transition clear reset bright dim underline blink reverse hidden"
- flags_list="-h --help -V --Version -d --details"
+flags_list="-h --help -V --Version -d --details"
 flags_getdeps="-h --help"
 
 function _bpkg-completion
@@ -20,7 +20,7 @@ function _bpkg-completion
     COMPREPLY=($(compgen -W "$flags $CMDS" -- "$cur"))
   else
 
-    case "$prev" in
+    case "${COMP_WORDS[1]}" in
       "json" ) COMPREPLY=($(compgen -W "$flags_json" -- "$cur"));;
       "install" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
       "package" )
