@@ -4,6 +4,7 @@ CMDS="json install package term suggest init update list show getdeps"
 flags="-h -V"
 flags_json="-b -l -p -h"
 CMDS_term="write cursor color background move transition clear reset bright dim underline blink reverse hidden"
+ flags_list="-h --help -V --Version -d --details"
 
 function _bpkg-completion
 {
@@ -44,6 +45,9 @@ EOT
         ;;
       "term" ) COMPREPLY=($(compgen -W "$ CMDS_term" -- "$cur"));;
       "suggest" ) COMPREPLY =($(compgen -W "$ flags" -- "$cur"));;
+      "init" ) COMPREPLY =($(compgen -W "$ flags" -- "$cur"));;
+      "update" ) COMPREPLY =($(compgen -W "$ flags" -- "$cur"));;
+      "list" ) COMPREPLY =($(compgen -W "$ flags_list" -- "$cur"));;
     esac
   fi
 
