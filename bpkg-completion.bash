@@ -23,6 +23,12 @@ function _bpkg-completion
     case "${COMP_WORDS[1]}" in
       "json" ) COMPREPLY=($(compgen -W "$flags_json" -- "$cur"));;
       "install" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
+      "term" ) COMPREPLY=($(compgen -W "$CMDS_term" -- "$cur"));;
+      "suggest" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
+      "init" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
+      "update" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
+      "list" ) COMPREPLY=($(compgen -W "$flags_list" -- "$cur"));;
+      "getdeps" ) COMPREPLY=($(compgen -W "$flags_getdeps" -- "$cur"));;
       "package" )
         # return all parameters in package.json
         if [ -f ./package.json ]
@@ -44,12 +50,6 @@ EOT
           COMPREPLY=($(compgen -W "$rep" -- "$cur"))
         fi
         ;;
-      "term" ) COMPREPLY=($(compgen -W "$CMDS_term" -- "$cur"));;
-      "suggest" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
-      "init" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
-      "update" ) COMPREPLY=($(compgen -W "$flags" -- "$cur"));;
-      "list" ) COMPREPLY=($(compgen -W "$flags_list" -- "$cur"));;
-      "getdeps" ) COMPREPLY=($(compgen -W "$flags_getdeps" -- "$cur"));;
     esac
   fi
 
