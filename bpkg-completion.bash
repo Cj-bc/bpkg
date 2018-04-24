@@ -53,11 +53,11 @@ EOT
         ;;
       "show" )
         case "${COMP_WORDS[2]}" in
-          "" ) COMPREPLY=($(compgen -W "$CMDS_show" -- "$cur"));;
           "readme" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
           "source" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
-
-
+          * ) COMPREPLY=($(compgen -W "$CMDS_show ${packages[*]}" -- "$cur"));;
+        esac
+        ;;
      * ) echo nothing was detected;;
     esac
   fi
