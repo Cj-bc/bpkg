@@ -55,6 +55,7 @@ EOT
         case "${COMP_WORDS[2]}" in
           "readme" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
           "source" ) COMPREPLY=($(compgen -W "${packages[*]}" -- "$cur"));;
+          "-V" | "-h" ) ;;
           * ) COMPREPLY=($(compgen -W "$CMDS_show ${packages[*]}" -- "$cur"));;
         esac
         ;;
