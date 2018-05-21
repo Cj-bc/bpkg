@@ -1,0 +1,1 @@
+Store what package was installed via bpkg @feature
